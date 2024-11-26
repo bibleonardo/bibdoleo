@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h2>Checkout</h2>
+<form action="{{ url_for('finalizar_compra') }}" method="post">
+    <label for="endereco">Endereço de Entrega:</label>
+    <input type="text" id="endereco" name="endereco" required>
+    <label for="pagamento">Método de Pagamento:</label>
+    <select id="pagamento" name="pagamento" required>
+        <option value="cartao">Cartão de Crédito</option>
+        <option value="boleto">Boleto</option>
+    </select>
+    <button type="submit">Confirmar Pedido</button>
+</form>
+{% endblock %}

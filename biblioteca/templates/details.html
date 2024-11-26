@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Detalhes do Livro - {{ livro.titulo }}{% endblock %}
+{% block content %}
+<h2>{{ livro.titulo }}</h2>
+<p><strong>Autor:</strong> {{ livro.autor }}</p>
+<p><strong>Categoria:</strong> {{ livro.categoria }}</p>
+<p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+
+{% if livro.disponibilidade %}
+    <p style="color: green;"><strong>Disponível</strong></p>
+    <a href="{{ url_for('adicionar_ao_carrinho', livro_id=livro.id) }}" class="button">Adicionar ao Carrinho</a>
+{% else %}
+    <p style="color: red;"><strong>Indisponível</strong></p>
+{% endif %}
+
+<a href="{{ url_for('index') }}">Voltar à Lista de Livros</a>
+{% endblock %}

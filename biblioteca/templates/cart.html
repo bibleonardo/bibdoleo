@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Carrinho{% endblock %}
+{% block content %}
+<h2>Seu Carrinho</h2>
+{% if itens %}
+    <ul>
+        {% for item in itens %}
+        <li>
+            {{ item.livro.titulo }} - {{ item.livro.autor }}
+            <a href="{{ url_for('remover_carrinho', livro_id=item.livro.id) }}">Remover</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('checkout') }}" class="button">Finalizar Compra</a>
+{% else %}
+    <p>Seu carrinho está vazio.</p>
+{% endif %}
+{% endblock %}

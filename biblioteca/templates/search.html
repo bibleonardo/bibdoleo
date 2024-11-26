@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Busca de Livros{% endblock %}
+{% block content %}
+<h2>Resultados da Busca</h2>
+<p>Termo buscado: "{{ termo }}"</p>
+{% if livros %}
+    <ul>
+        {% for livro in livros %}
+        <li>
+            {{ livro.titulo }} - {{ livro.autor }}
+            <a href="{{ url_for('detalhes', livro_id=livro.id) }}">Ver Detalhes</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum livro encontrado para "{{ termo }}".</p>
+{% endif %}
+{% endblock %}

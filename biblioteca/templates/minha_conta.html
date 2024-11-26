@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Minha Conta{% endblock %}
+{% block content %}
+<h2>Minha Conta</h2>
+<form method="POST">
+    <label for="email">Novo E-mail:</label>
+    <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+    
+    <label for="senha_atual">Senha Atual:</label>
+    <input type="password" id="senha_atual" name="senha_atual" required>
+    
+    <label for="nova_senha">Nova Senha (opcional):</label>
+    <input type="password" id="nova_senha" name="nova_senha">
+
+    <button type="submit">Salvar Alterações</button>
+</form>
+
+<a href="{{ url_for('index') }}">Voltar para a Página Inicial</a>
+{% endblock %}
